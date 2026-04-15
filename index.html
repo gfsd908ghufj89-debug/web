@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <title>Raven's Leaks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #050816;
@@ -21,30 +21,49 @@
       justify-content: center;
       padding: 24px;
     }
+
     .wrap {
       width: 100%;
       max-width: 560px;
       text-align: center;
     }
+
     h1 {
       font-size: 32px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 18px;
     }
+
     h1 span {
       color: #8ab4ff;
     }
-    p.subtitle {
+
+    .subtitle {
       font-size: 13px;
       color: #b3b9cc;
       margin-bottom: 24px;
     }
+
+    .section {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #9aa1ba;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     .links {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
+
     a {
       display: block;
       text-decoration: none;
@@ -53,41 +72,58 @@
       padding: 10px 14px;
       background: #0b1020;
       border: 1px solid #20263f;
-      text-align: left;
       font-size: 14px;
-      transition: background 0.15s ease-out, border-color 0.15s ease-out, transform 0.15s ease-out;
+      transition: 0.15s;
     }
-    a span.label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    a span.url {
-      display: block;
-      font-size: 12px;
-      color: #9aa1ba;
-      word-break: break-all;
-    }
-    .icon {
-      display: inline-block;
-      margin-right: 6px;
-      font-size: 13px;
-      opacity: 0.9;
-    }
+
     a:hover {
       background: #121933;
       border-color: #3f57ff;
       transform: translateY(-1px);
     }
-    /* make these two stand out a bit more */
-    a.featured {
+
+    .featured {
       border-color: #ffb347;
       background: #151321;
     }
-    a.featured:hover {
-      border-color: #ffd27f;
-      background: #1b172b;
+
+    .dropdown {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #20263f;
+      background: #0b1020;
     }
+
+    .dropdown-btn {
+      width: 100%;
+      padding: 12px 14px;
+      background: none;
+      border: none;
+      color: #f5f5f5;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .dropdown-btn:hover {
+      background: #121933;
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 10px;
+    }
+
+    .dropdown.open .dropdown-content {
+      max-height: 500px;
+      padding: 10px;
+    }
+
     .footer {
       margin-top: 18px;
       font-size: 11px;
@@ -95,56 +131,60 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <h1>Raven's <span>Leaks</span></h1>
     <p class="subtitle">All official links in one simple place. Bookmark this page.</p>
 
-    <div class="links">
-      <!-- Popular Free OnlyFans 💙 (stand out) -->
-      <a class="featured" href="https://discord.gg/t2ZtNx6k" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">DC</span>Popular Free OnlyFans 💙</span>
-        <span class="url">https://discord.gg/t2ZtNx6k</span>
-      </a>
-      
-      <!-- Piper Rockelle Channel (stand out) -->
-      <a class="featured" href="https://t.me/piperleakss" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">TG</span>Piper Rockelle Channel</span>
-        <span class="url">https://t.me/piperleakss</span>
-      </a>
+    <!-- NEW CATEGORY -->
+    <div class="section">
+      <div class="section-title">⭐ Main</div>
+      <div class="links">
+        <a class="featured" href="https://t.me/epstein58" target="_blank">
+          NEW EPSTEIN ISLAND VIDEO!!
+        </a>
+      </div>
+    </div>
 
-      <!-- Discord Server (stand out) -->
-      <a class="featured" href="https://discord.gg/cpRvquE5ke" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">DC</span>Discord Server</span>
-        <span class="url">https://discord.gg/cpRvquE5ke</span>
-      </a>
+    <!-- 18+ DROPDOWN -->
+    <div class="section">
+      <div class="section-title">Content</div>
 
-      <!-- Lil Tay Channel -->
-      <a href="https://t.me/liltayof0" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">TG</span>Lil Tay Channel</span>
-        <span class="url">https://t.me/liltayof0</span>
-      </a>
+      <div class="dropdown" id="dropdown18">
+        <button class="dropdown-btn" onclick="toggleDropdown()">
+          🔞 18+ (Click to open)
+        </button>
 
-      <!-- Backup Telegram -->
-      <a href="https://t.me/ravenleakz" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">TG</span>Backup Telegram</span>
-        <span class="url">https://t.me/ravenleakz</span>
-      </a>
+        <div class="dropdown-content">
+          <a href="https://t.me/piperleakss" target="_blank">
+            Piper Rockelle Channel
+          </a>
 
-      <!-- Backup Discord Server -->
-      <a href="https://discord.gg/KVpEzeTj4T" target="_blank" rel="noopener noreferrer">
-        <span class="label"><span class="icon">DC</span>Backup Discord Server</span>
-        <span class="url">https://discord.gg/KVpEzeTj4T</span>
-      </a>
+          <a href="https://t.me/liltayof0" target="_blank">
+            Lil Tay Channel
+          </a>
+
+          <a href="https://t.me/ravenleakz" target="_blank">
+            Backup Telegram
+          </a>
+
+          <a href="https://discord.gg/KVpEzeTj4T" target="_blank">
+            Backup Discord Server
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
       If anything goes down, check here for the latest backups.
     </div>
   </div>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById("dropdown18").classList.toggle("open");
+    }
+  </script>
 </body>
-
 </html>
-
-
-
